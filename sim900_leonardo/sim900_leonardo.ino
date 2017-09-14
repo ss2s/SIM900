@@ -56,11 +56,6 @@ void loop() {
     digitalWrite(LED, HIGH);
     ring();
   }
-  else
-  {
-    digitalWrite(LED, LOW);
-    delay(50);             // задержка. в это время кнопка не распознается
-  }
 
   if (LEO.available()>0){
     int inByte = LEO.read();
@@ -75,10 +70,10 @@ void loop() {
   if (digitalRead(LED)>0){
     GSM.println("AT+CPAS");
 
-    delay(100);
+    delay(200);
 
     if (!GSM.find("4")){
-      delay(100);
+      delay(1000);
       digitalWrite(LED, LOW);
     }
   }
