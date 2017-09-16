@@ -4,6 +4,11 @@
 #define KNOPKA 7 // ПИН ПОДКЛЮЧЕНИЯ КНОПКИ
 #define MODEMBOOT 9
 
+unsigned long pulsVal = 1000000; // ДЛИТЕЛЬНОСТЬ ИМПУЛЬСА В мкс. ДЛИТЕЛЬНОСТЬ НАЖАТИЯ ДЛЯ СРАБОТКИ КНОПКИ
+unsigned long duration;
+unsigned long durationTimeout = 50000000; // ДЛИТЕЛЬНОСТЬ ТАЙМАУТА (ДОЛЖНА БЫТЬ В 50 И БОЛЕЕ РАЗ БОЛЬШЕ ЧЕМ ДЛИТЕЛЬНОСТЬ ИМПУЛЬСА)
+boolean lastLed;
+
 void ring(){
   GSM.println("ATD+380965116553;"); //// НОМЕР ТЕЛЕФОНА НА КОТОРЫЙ БУДЕТ ЗВОНИТЬ ////
    
@@ -42,6 +47,7 @@ void setup() {
   pinMode(KNOPKA, INPUT_PULLUP);
   pinMode(LED, OUTPUT);
   pinMode(MODEMBOOT, OUTPUT);
+  digitalWrite(LED, LOW);
 
   modemcheck();
 }
