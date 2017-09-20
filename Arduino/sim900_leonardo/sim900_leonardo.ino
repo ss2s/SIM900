@@ -4,6 +4,7 @@
 #define KNOPKA 7 // ПИН ПОДКЛЮЧЕНИЯ КНОПКИ
 #define MODEMBOOT 9
 
+// защита от наводок переменного тока
 unsigned long pulsVal = 5000; // ДЛИТЕЛЬНОСТЬ ИМПУЛЬСА В мкс. ДЛИТЕЛЬНОСТЬ НАЖАТИЯ ДЛЯ СРАБОТКИ КНОПКИ
 unsigned long duration;
 unsigned long durationTimeout = 50000000; // ДЛИТЕЛЬНОСТЬ ТАЙМАУТА (ДОЛЖНА БЫТЬ В 50 И БОЛЕЕ РАЗ БОЛЬШЕ ЧЕМ ДЛИТЕЛЬНОСТЬ ИМПУЛЬСА)
@@ -90,10 +91,10 @@ void loop() {
 
     GSM.println("AT+CPAS");
 
-    delay(200);
+    delay(2000);  // задержка
 
     if (!GSM.find("4")){
-      delay(1000);
+      delay(1000);  // задержка
       digitalWrite(LED, LOW);
     }
   }
