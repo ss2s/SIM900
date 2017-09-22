@@ -1,5 +1,5 @@
-#define GSM Serial
-#define LEO Serial1
+#define GSM Serial1
+#define LEO Serial
 #define LED 13
 #define KNOPKA 7 // ПИН ПОДКЛЮЧЕНИЯ КНОПКИ
 #define MODEMBOOT 9
