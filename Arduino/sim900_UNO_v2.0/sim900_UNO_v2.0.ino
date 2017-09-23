@@ -36,6 +36,8 @@ void modemcheck(){
       if (GSM.find("+COPS: 0")) break;
  
   }
+
+  GSM.println("AT+CLVL=100");
 }
  
 void setup() {
