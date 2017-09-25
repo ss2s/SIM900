@@ -43,6 +43,7 @@ void modemcheck(){
 void setup() {
 
   GSM.begin(9600);
+  LEO.begin(9600);
 
 
   delay(2000);
