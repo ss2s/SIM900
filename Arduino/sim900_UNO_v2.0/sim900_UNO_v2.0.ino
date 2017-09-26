@@ -105,7 +105,7 @@ void loop() {
     delay(2000);  // задержка
 
     if (!GSM.find("4")){
-      delay(2000);  // задержка
+      //delay(2000);  // задержка
       digitalWrite(LED, LOW);
     }
   }
