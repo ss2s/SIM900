@@ -62,8 +62,17 @@ void loop() {
 
   if (pulsVal < duration){
 
-    modemcheck();
+    GSM.println("AT");
+
+    delay(100);
+
+    if (!GSM.find("OK")){
+
+      modemcheck();
+    }
+
     digitalWrite(LED, HIGH);
+    
     ring();
   }
     
